@@ -1,9 +1,9 @@
-export const Counter = ({value, setValue}) => {
+export const Counter = ({value, setValue, min = 0, max}) => {
 	return (
 		<span>
-			<button onClick={() => setValue(value - 1)} disabled={value <= 0}>-</button>
+			<button onClick={() => setValue(value - 1)} disabled={value <= min}>-</button>
 			<span>{value}</span>
-			<button onClick={() => setValue(value + 1)}>+</button>
+			<button onClick={() => setValue(value + 1)} disabled={value >= max}>+</button>
 		</span>
 	)
 }
