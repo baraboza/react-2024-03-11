@@ -7,7 +7,7 @@ export const Dish = ({dish}) => {
 	return (
 		<div>
 			<span>{dish.name}</span>
-			<Counter value={count} setValue={setCount}/>
+			<Counter value={count} setValue={setCount} max={5}/>
 		</div>
 	)
 }
