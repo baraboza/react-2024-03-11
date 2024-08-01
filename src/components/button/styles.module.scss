@@ -1,0 +1,55 @@
+.root {
+	display: inline-block;
+	border: 1px solid transparent;
+	border-radius: 9px;
+	outline: none;
+	cursor: pointer;
+	transition: .3s;
+
+	&:hover {
+		opacity: 0.8;
+	}
+}
+
+.primary {
+	border-color: #514df7;
+	background-color: #514df7;
+	color: #fff;
+
+	&.inverse {
+		background-color: #fff;
+		color: #514df7;
+	}
+}
+
+.secondary {
+	border-color: #edeff3;
+	background-color: #edeff3;
+	color: #000;
+	
+	&.inverse {
+		border-color: #000;
+		background-color: #000;
+		color: #edeff3;
+	}
+}
+
+.s {
+	font-size: 14px;
+	padding: 8px 16px;
+}
+
+.m {
+	font-size: 16px;
+	padding: 10px 20px;
+}
+
+.l {
+	font-size: 18px;
+	padding: 12px 24px;
+}
+
+.disabled {
+	opacity: 0.8;
+	cursor: not-allowed;
+}

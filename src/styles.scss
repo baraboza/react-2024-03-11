@@ -1,0 +1,31 @@
+html,
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #eff1f8;
+}
+
+.container {
+    max-width: 1200px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+// Временно, пока нет роутинга с отдельными страницами
+.restaurant-page {
+    &__box {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        margin: 40px 0;
+    }
+
+    &__tabs {
+    }
+
+    &__restaurant {
+        margin-top: 30px;
+    }
+}
