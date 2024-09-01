@@ -1,8 +1,13 @@
-import ReactDOM from 'react-dom/client'
-import {App} from "./App.jsx";
+import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { App } from './App.jsx';
+import './styles.scss';
+import { store } from './redux/index.js';
 
-import "./styles.scss"
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
-const root = ReactDOM.createRoot(document.getElementById('root'))
-
-root.render(<App/>)
+root.render(
+	<Provider store={store}>
+		<App />
+	</Provider>,
+);

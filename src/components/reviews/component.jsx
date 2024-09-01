@@ -1,14 +1,14 @@
-import {Review} from "../review/component.jsx";
+import { Review } from '../review/component.jsx';
 
-export const Reviews = ({reviews}) => {
+export const Reviews = ({ reviews }) => {
 	return (
 		<ul>
-			{reviews.map((review) => (
+			{reviews.map(reviewId => (
 				// eslint-disable-next-line react/jsx-key
 				<li>
-					<Review review={review}/>
+					<Review reviewId={reviewId} />
 				</li>
 			))}
 		</ul>
-	)
-}
+	);
+};

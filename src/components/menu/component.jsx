@@ -1,14 +1,14 @@
-import {Dish} from "../dish/component.jsx";
+import { Dish } from '../dish/component.jsx';
 
-export const Menu = ({menu}) => {
+export const Menu = ({ menu }) => {
 	return (
 		<ul>
-			{menu.map((dish) => (
+			{menu.map(dishId => (
 				// eslint-disable-next-line react/jsx-key
 				<li>
-					<Dish dish={dish}/>
+					<Dish dishId={dishId} />
 				</li>
 			))}
 		</ul>
-	)
-}
+	);
+};
