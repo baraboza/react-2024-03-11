@@ -1,7 +1,13 @@
-export const Tab = ({title, isActive, onClick}) => {
+import {Button} from "../button/component.jsx";
+
+export const Tab = ({title, isActive, onClick, className}) => {
 	return (
-		<button onClick={onClick} disabled={isActive}>
+		<Button
+			className={className}
+			onClick={onClick}
+			viewVariant={isActive ? "primary" : "secondary"}
+		>
 			{title}
-		</button>
+		</Button>
 	)
 }

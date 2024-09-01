@@ -1,0 +1,36 @@
+.root {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.header {
+	background-color: #fff;
+	padding: 20px 0;
+}
+
+.headerContainer {
+	display: flex;
+	align-items: center;
+}
+
+.theme {
+	margin-left: 20px;
+}
+
+.user {
+	margin-left: auto;
+}
+
+.userName {
+	margin-right: 10px;
+}
+
+.main {
+	margin-bottom: auto;
+}
+
+.footer {
+	background-color: #fff;
+	padding: 20px 0;
+}
