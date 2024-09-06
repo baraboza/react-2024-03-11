@@ -9,12 +9,13 @@ import styles from './styles.module.scss';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/user.jsx';
 import { useSelector } from 'react-redux';
+import { selectRestaurantById } from '../../redux/entities/restaurant/selectors.js';
 
 export const Restaurant = ({ className, restaurantId }) => {
 	const { amount, decrement, increment } = useCounter();
 	const user = useContext(UserContext);
 
-	const restaurant = useSelector(state => state.restaurant.entities[restaurantId]);
+	const restaurant = useSelector(state => selectRestaurantById(state, restaurantId));
 
 	if (!restaurant) {
 		return null;

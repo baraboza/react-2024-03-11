@@ -5,12 +5,13 @@ import styles from './styles.module.scss';
 import classNames from 'classnames';
 import { UserContext } from '../../contexts/user.jsx';
 import { useSelector } from 'react-redux';
+import { selectDishById } from '../../redux/entities/dish/selectors.js';
 
 export const Dish = ({ dishId, className }) => {
 	const [count, setCount] = useState(0);
 	const user = useContext(UserContext);
 
-	const dish = useSelector(state => state.dish.entities[dishId]);
+	const dish = useSelector(state => selectDishById(state, dishId));
 
 	if (!dish) {
 		return null;
