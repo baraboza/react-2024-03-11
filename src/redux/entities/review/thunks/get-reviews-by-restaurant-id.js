@@ -11,7 +11,7 @@ export const getReviewsByRestaurantId = createAsyncThunk(
 	{
 		condition: (restaurantId, { getState }) => {
 			const state = getState();
-			const restaurantReviewIds = selectRestaurantReviewIds(restaurantId);
+			const restaurantReviewIds = selectRestaurantReviewIds(state, restaurantId);
 			const reviewIds = selectReviewIds(state);
 
 			return restaurantReviewIds.some(id => !reviewIds.includes(id));

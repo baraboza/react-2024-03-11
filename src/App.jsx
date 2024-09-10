@@ -1,14 +1,18 @@
 import { Restaurant } from './components/restaurant/component.jsx';
 import { Layout } from './components/layout/component.jsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RestaurantTabs } from './components/restaurant-tabs/component.jsx';
-import { getStorageItem, setStorageItem } from './utils/storage.js';
-import { STORAGE_KEYS } from './constants/storage.js';
+import { useDispatch } from 'react-redux';
+import { getRestaurants } from './redux/entities/restaurant/thunks/get-restaurants.js';
 
 export const App = () => {
-	const [currentRestaurantId, setCurrentRestaurantId] = useState(() =>
-		getStorageItem(STORAGE_KEYS.currentRestaurantId),
-	);
+	const [currentRestaurantId, setCurrentRestaurantId] = useState();
+
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(getRestaurants());
+	}, []);
 
 	return (
 		<Layout>
@@ -18,10 +22,7 @@ export const App = () => {
 						<RestaurantTabs
 							className="restaurant-page__tabs"
 							currentId={currentRestaurantId}
-							onTabClick={id => {
-								setCurrentRestaurantId(id);
-								setStorageItem(STORAGE_KEYS.currentRestaurantId, id);
-							}}
+							onTabClick={setCurrentRestaurantId}
 						/>
 						{currentRestaurantId && (
 							<Restaurant

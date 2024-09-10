@@ -1,3 +1,1 @@
-export const STORAGE_KEYS = {
-	currentRestaurantId: 'currentRestaurantId',
-};
+export const STORAGE_KEYS = {};
