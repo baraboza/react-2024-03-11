@@ -12,7 +12,7 @@ export const App = () => {
 
 	useEffect(() => {
 		dispatch(getRestaurants());
-	}, []);
+	}, [dispatch]);
 
 	return (
 		<Layout>

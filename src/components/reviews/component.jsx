@@ -9,7 +9,7 @@ export const Reviews = ({ restaurantId }) => {
 
 	useEffect(() => {
 		dispatch(getReviewsByRestaurantId(restaurantId));
-	}, [restaurantId]);
+	}, [dispatch, restaurantId]);
 
 	const reviewIds = useSelector(state => selectRestaurantReviewIds(state, restaurantId));
 

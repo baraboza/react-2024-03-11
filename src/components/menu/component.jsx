@@ -9,7 +9,7 @@ export const Menu = ({ restaurantId }) => {
 
 	useEffect(() => {
 		dispatch(getDishesByRestaurantId(restaurantId));
-	}, [restaurantId]);
+	}, [dispatch, restaurantId]);
 
 	const dishIds = useSelector(state => selectRestaurantDishIds(state, restaurantId));
 
