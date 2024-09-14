@@ -1,12 +1,27 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { selectRestaurantDishIds } from '../../restaurant/selectors.js';
 import { selectDishIds } from '../selectors.js';
+import { getStrapiApiUrl, getStrapiNormalizedData } from '../../../../utils/strapi.js';
+
+const PARAMS = {
+	populate: {
+		ingredients: true,
+	},
+};
 
 export const getDishesByRestaurantId = createAsyncThunk(
 	'dish/getDishesByRestaurantId',
 	async restaurantId => {
-		const response = await fetch(`http://localhost:3001/api/dishes?restaurantId=${restaurantId}`);
-		return response.json();
+		const params = {
+			...PARAMS,
+			filters: {
+				restaurantId,
+			},
+		};
+
+		const response = await fetch(getStrapiApiUrl('/dishes', params));
+		const json = await response.json();
+		return getStrapiNormalizedData(json?.data, PARAMS);
 	},
 	{
 		condition: (restaurantId, { getState }) => {
