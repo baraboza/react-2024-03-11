@@ -1,9 +1,9 @@
-import { Restaurant } from './components/restaurant/component.jsx';
 import { Layout } from './components/layout/component.jsx';
 import { useEffect, useState } from 'react';
-import { RestaurantTabs } from './components/restaurant-tabs/component.jsx';
 import { useDispatch } from 'react-redux';
 import { getRestaurants } from './redux/entities/restaurant/thunks/get-restaurants.js';
+import { RestaurantContainer } from './components/restaurant/container.jsx';
+import { RestaurantTabsContainer } from './components/restaurant-tabs/container.jsx';
 
 export const App = () => {
 	const [currentRestaurantId, setCurrentRestaurantId] = useState();
@@ -19,13 +19,13 @@ export const App = () => {
 			<div className="restaurant-page">
 				<div className="container">
 					<div className="restaurant-page__box">
-						<RestaurantTabs
+						<RestaurantTabsContainer
 							className="restaurant-page__tabs"
 							currentId={currentRestaurantId}
 							onTabClick={setCurrentRestaurantId}
 						/>
 						{currentRestaurantId && (
-							<Restaurant
+							<RestaurantContainer
 								className="restaurant-page__restaurant"
 								restaurantId={currentRestaurantId}
 							/>

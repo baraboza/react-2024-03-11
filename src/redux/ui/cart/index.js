@@ -16,7 +16,15 @@ export const cartSlice = createSlice({
 				delete state[id];
 			}
 		},
+
+		setDishAmount: (state, { payload: { id, amount } }) => {
+			state[id] = amount;
+
+			if (state[id] <= 0) {
+				delete state[id];
+			}
+		},
 	},
 });
 
-export const { incrementDish, decrementDish } = cartSlice.actions;
+export const { incrementDish, decrementDish, setDishAmount } = cartSlice.actions;
