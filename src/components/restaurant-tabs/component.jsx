@@ -1,20 +1,27 @@
-import classNames from "classnames";
-import {Tab} from "../tab/component.jsx";
-
+import classNames from 'classnames';
+import { useSelector } from 'react-redux';
+import { RestaurantTab } from '../restaurant-tab/component.jsx';
 import styles from './styles.module.scss';
+import { selectRestaurantIds } from '../../redux/entities/restaurant/selectors.js';
 
-export const RestaurantTabs = ({ restaurants, onTabClick, currentIndex, className }) => {
+export const RestaurantTabs = ({ onTabClick, currentId, className }) => {
+	const restaurantIds = useSelector(selectRestaurantIds);
+
+	if (!restaurantIds?.length) {
+		return null;
+	}
+
 	return (
 		<div className={classNames(styles.root, className)}>
-			{restaurants.map((restaurant, index) => (
+			{restaurantIds.map(restaurantId => (
 				// eslint-disable-next-line react/jsx-key
-				<Tab
+				<RestaurantTab
 					className={styles.tab}
-					title={restaurant.name}
-					isActive={index === currentIndex}
-					onClick={() => onTabClick(index)}
+					isActive={restaurantId === currentId}
+					restaurantId={restaurantId}
+					onClick={() => onTabClick(restaurantId)}
 				/>
 			))}
 		</div>
-	)
-}
+	);
+};

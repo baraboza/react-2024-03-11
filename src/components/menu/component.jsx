@@ -1,14 +1,30 @@
-import {Dish} from "../dish/component.jsx";
+import { Dish } from '../dish/component.jsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getDishesByRestaurantId } from '../../redux/entities/dish/thunks/get-dishes-by-restaurant-id.js';
+import { selectRestaurantDishIds } from '../../redux/entities/restaurant/selectors.js';
 
-export const Menu = ({menu}) => {
+export const Menu = ({ restaurantId }) => {
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(getDishesByRestaurantId(restaurantId));
+	}, [dispatch, restaurantId]);
+
+	const dishIds = useSelector(state => selectRestaurantDishIds(state, restaurantId));
+
+	if (!dishIds?.length) {
+		return null;
+	}
+
 	return (
 		<ul>
-			{menu.map((dish) => (
+			{dishIds.map(dishId => (
 				// eslint-disable-next-line react/jsx-key
 				<li>
-					<Dish dish={dish}/>
+					<Dish dishId={dishId} />
 				</li>
 			))}
 		</ul>
-	)
-}
+	);
+};

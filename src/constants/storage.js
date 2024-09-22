@@ -1,3 +1,1 @@
-export const STORAGE_KEYS = {
-	currentRestaurantIndex: 'currentRestaurantIndex'
-}
+export const STORAGE_KEYS = {};
