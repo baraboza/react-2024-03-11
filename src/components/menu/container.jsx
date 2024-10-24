@@ -4,8 +4,10 @@ import { getDishesByRestaurantId } from '../../redux/entities/dish/thunks/get-di
 import { selectRestaurantDishIds } from '../../redux/entities/restaurant/selectors.js';
 import { useRequest } from '../../hooks/useRequest.js';
 import { REQUEST_STATUSES } from '../../redux/ui/request/constants.js';
+import { useParams } from 'react-router-dom';
 
-export const MenuContainer = ({ restaurantId, ...props }) => {
+export const MenuContainer = ({ ...props }) => {
+	const { restaurantId } = useParams();
 	const requestStatus = useRequest(getDishesByRestaurantId, restaurantId);
 
 	const dishIds = useSelector(state => selectRestaurantDishIds(state, restaurantId));

@@ -4,8 +4,10 @@ import { getReviewsByRestaurantId } from '../../redux/entities/review/thunks/get
 import { selectRestaurantReviewIds } from '../../redux/entities/restaurant/selectors.js';
 import { useRequest } from '../../hooks/useRequest.js';
 import { REQUEST_STATUSES } from '../../redux/ui/request/constants.js';
+import { useParams } from 'react-router-dom';
 
-export const ReviewsContainer = ({ restaurantId, ...props }) => {
+export const ReviewsContainer = ({ ...props }) => {
+	const { restaurantId } = useParams();
 	const requestStatus = useRequest(getReviewsByRestaurantId, restaurantId);
 
 	const reviewIds = useSelector(state => selectRestaurantReviewIds(state, restaurantId));

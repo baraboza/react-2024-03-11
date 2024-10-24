@@ -1,0 +1,40 @@
+.root {
+	background-color: #fff;
+	padding: 20px 0;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+}
+
+.theme {
+	margin-left: 20px;
+}
+
+.nav {
+	display: flex;
+	margin: 0 auto;
+
+	a {
+		margin: 0 10px;
+		text-decoration: none;
+		color: #000;
+
+		&.active {
+			color: #514df7;
+		}
+	}
+}
+
+.user {
+	margin-left: auto;
+}
+
+.userName {
+	margin-right: 10px;
+}
+
+.userButton {
+
+}
