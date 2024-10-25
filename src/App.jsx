@@ -5,6 +5,7 @@ import { RestaurantsPage } from './pages/restaurants.jsx';
 import { RestaurantContainer } from './components/restaurant/container.jsx';
 import { ReviewsContainer } from './components/reviews/container.jsx';
 import { MenuContainer } from './components/menu/container.jsx';
+import { DishPage } from './pages/dish.jsx';
 
 const router = createBrowserRouter([
 	{
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
 						],
 					},
 				],
+			},
+			{
+				path: 'dish/:dishId',
+				element: <DishPage />,
 			},
 		],
 	},
