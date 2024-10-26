@@ -2,20 +2,22 @@ import classNames from 'classnames';
 import styles from './styles.module.scss';
 import { Counter } from '../counter/component.jsx';
 
-export const DishCard = ({ className }) => {
+export const DishCard = ({ className, dish, amount, setAmount, withCart }) => {
 	return (
 		<div className={classNames(className, styles.root)}>
-			<h2>Dish</h2>
+			<h2>{dish.name}</h2>
 			<p>
-				<b>Цена</b>: 120$
+				<b>Цена</b>: {dish.price}$
 			</p>
 
-			<Counter className={styles.counter} value={0} max={5} />
+			{withCart && <Counter value={amount} setValue={setAmount} max={5} />}
 
 			<h3>Ингредиенты</h3>
 			<ul>
-				<li>рыба</li>
-				<li>сметана</li>
+				{dish.ingredients?.map(({ text }) => (
+					// eslint-disable-next-line react/jsx-key
+					<li>{text}</li>
+				))}
 			</ul>
 		</div>
 	);
